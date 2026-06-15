@@ -1,8 +1,7 @@
-export function random(len: number){
-    let options = "qwertyuiopasdfghjklzxcvbnm1234567890";
-    let ans = "";
-    for (let i = 0; i < len; i++){
-        ans += options[Math.floor(Math.random()*len)]
-    }
-    return ans;
-}
+import crypto from "crypto"
+
+export function generateHash(length: number = 10) {
+    return crypto.randomBytes(Math.ceil(length / 2))
+        .toString('hex') 
+        .slice(0, length); 
+};

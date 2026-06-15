@@ -37,15 +37,15 @@ const TagSchema = new Schema({
   title: {type: String, required: true, unique: true}
 })
 
-const contentTypes = ['image', 'video', 'article', 'audio', 'tweet', 'insta-post', 'insta-reel', 'text'] // extend as needed
+const contentTypes = ['image', 'video', 'article', 'audio', 'tweet', 'insta-post', 'insta-reel', 'text'];
 const ContentSchema = new Schema({
-  link: { type: String, required: false},
-  type: { type: String, enum: contentTypes, required: true },
   title: { type: String, required: true },
-  body: {type: String},
-  tags: [{ type: mongoose.Types.ObjectId, ref: 'Tag' }],
-  userId: { type: mongoose.Types.ObjectId, ref: 'User', required: true },
-}, {timestamps: true})
+  type: { type: String, enum: contentTypes, required: true },
+  link: { type: String, required: false },
+  body: { type: String, required: false },
+  tags: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Tag' }],
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+}, { timestamps: true });
 
 const LinkSchema = new Schema({
     hash: {type: String, unique: true, required: true},

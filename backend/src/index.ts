@@ -10,12 +10,21 @@ import { generateHash } from "./utils.js";
 import type { Request, Response } from "express";
 import crypto from "crypto";
 
-// add zod validation - line 132
 // add sign in with google auth
 // redo and reconfirm apis
 // start with frontend
 
 // add fields also along with error messages
+
+// apis to add -
+// put content/:contentId
+// post tags
+// get tags
+// search and filter apis
+
+// add pagination
+
+// add rate limiting
 
 dotenv.config();
 
